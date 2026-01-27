@@ -139,27 +139,6 @@ func processStatic(staticDir, distDir string) error {
 	})
 }
 
-func processImages(contentDir, distDir string) error {
-	imagesDir := filepath.Join(contentDir, "images")
-	if _, err := os.Stat(imagesDir); os.IsNotExist(err) {
-		return nil // No images directory, skip
-	}
-
-	return filepath.Walk(imagesDir, func(path string, info os.FileInfo, err error) error {
-		if err != nil || info.IsDir() {
-			return err
-		}
-
-		rel, _ := filepath.Rel(imagesDir, path)
-		data, err := os.ReadFile(path)
-		if err != nil {
-			return err
-		}
-
-		return writeFile(filepath.Join(distDir, "images", rel), string(data))
-	})
-}
-
 func generateSEO(cfg Config, posts []content.Post) error {
 	// Filter out drafts for SEO
 	var published []content.Post
