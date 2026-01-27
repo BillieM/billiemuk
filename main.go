@@ -8,6 +8,7 @@ import (
 
 	"billiemuk/internal/builder"
 	"billiemuk/internal/content"
+	"billiemuk/internal/server"
 	"billiemuk/internal/templates"
 )
 
@@ -31,7 +32,10 @@ func main() {
 		}
 		fmt.Println("Build complete: dist/")
 	case "serve":
-		fmt.Println("serve: not yet implemented")
+		if err := runServe(root); err != nil {
+			fmt.Fprintf(os.Stderr, "serve error: %v\n", err)
+			os.Exit(1)
+		}
 	case "new":
 		if len(os.Args) < 3 {
 			fmt.Fprintln(os.Stderr, "Usage: billiemuk new \"Post Title\"")
@@ -85,4 +89,20 @@ func runNew(root, title string) error {
 	fmt.Printf("Created: %s\n", path)
 	fmt.Printf("Preview: http://localhost:8080/posts/%s-%s/\n", date, slug)
 	return nil
+}
+
+func runServe(root string) error {
+	s := &server.Server{
+		DistDir: filepath.Join(root, "dist"),
+		BuildFn: func() error {
+			return runBuild(root, true, true)
+		},
+		WatchDirs: []string{
+			filepath.Join(root, "content"),
+			filepath.Join(root, "templates"),
+			filepath.Join(root, "static"),
+		},
+		Addr: ":8080",
+	}
+	return s.Start()
 }
