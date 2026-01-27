@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+    <link rel="stylesheet" href="/static/css/theme.min.css">
+    <link rel="alternate" type="application/rss+xml" title="{{.Site.Title}}" href="/feed.xml">
+    {{block "meta" .}}{{end}}
+    <title>{{block "title" .}}{{.Site.Title}}{{end}}</title>
+</head>
+<body>
+    <header class="container">
+        <nav>
+            <ul>
+                <li><strong><a href="/">{{.Site.Title}}</a></strong></li>
+            </ul>
+            <ul>
+                {{range .Site.Socials}}
+                <li><a href="{{.URL}}" target="_blank" rel="noopener noreferrer">{{.Name}}</a></li>
+                {{end}}
+            </ul>
+        </nav>
+    </header>
+    <main class="container">
+        {{block "content" .}}{{end}}
+    </main>
+    <footer class="container">
+        <small>&copy; {{.Site.Year}} {{.Site.Title}}</small>
+    </footer>
+    {{if .DevMode}}<script>
+    const es = new EventSource("/_reload");
+    es.onmessage = () => location.reload();
+    es.onerror = () => setTimeout(() => location.reload(), 1000);
+    </script>{{end}}
+</body>
+</html>

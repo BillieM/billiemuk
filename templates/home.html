@@ -1,0 +1,15 @@
+{{define "content"}}
+<section>
+    {{range .Posts}}
+    <article>
+        <header>
+            <a href="/posts/{{.Slug}}/"><strong>{{.Title}}</strong></a>
+            <small><time datetime="{{.Date.Format "2006-01-02"}}">{{.Date.Format "2 January 2006"}}</time></small>
+        </header>
+        {{if .Summary}}<p>{{.Summary}}</p>{{end}}
+    </article>
+    {{else}}
+    <p>No posts yet.</p>
+    {{end}}
+</section>
+{{end}}

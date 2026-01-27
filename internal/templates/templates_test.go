@@ -1,0 +1,93 @@
+package templates
+
+import (
+	"strings"
+	"testing"
+	"time"
+)
+
+func TestRenderHome(t *testing.T) {
+	dir := "../../templates"
+	renderer, err := New(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	data := PageData{
+		Site: SiteData{
+			Title:   "Test Site",
+			BaseURL: "https://example.com",
+			Year:    2026,
+			Socials: []Social{{Name: "GitHub", URL: "https://github.com/test"}},
+		},
+		Posts: []PostData{
+			{
+				Title:   "First Post",
+				Date:    time.Date(2026, 1, 15, 0, 0, 0, 0, time.UTC),
+				Summary: "A summary.",
+				Slug:    "2026-01-15-first-post",
+			},
+		},
+	}
+
+	html, err := renderer.RenderHome(data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	checks := []string{
+		"Test Site",
+		"First Post",
+		"A summary.",
+		"2026-01-15-first-post",
+		"GitHub",
+		"pico.min.css",
+		"theme.min.css",
+	}
+	for _, check := range checks {
+		if !strings.Contains(html, check) {
+			t.Errorf("home HTML missing %q", check)
+		}
+	}
+}
+
+func TestRenderPost(t *testing.T) {
+	dir := "../../templates"
+	renderer, err := New(dir)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	data := PageData{
+		Site: SiteData{
+			Title:   "Test Site",
+			BaseURL: "https://example.com",
+			Year:    2026,
+		},
+		Post: &PostData{
+			Title:       "My Post",
+			Date:        time.Date(2026, 1, 15, 0, 0, 0, 0, time.UTC),
+			Summary:     "Post summary.",
+			Slug:        "2026-01-15-my-post",
+			HTMLContent: "<p>Hello <strong>world</strong>.</p>",
+		},
+	}
+
+	html, err := renderer.RenderPost(data)
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	checks := []string{
+		"My Post",
+		"<p>Hello <strong>world</strong>.</p>",
+		"og:title",
+		"og:type",
+		"canonical",
+	}
+	for _, check := range checks {
+		if !strings.Contains(html, check) {
+			t.Errorf("post HTML missing %q", check)
+		}
+	}
+}

@@ -1,0 +1,20 @@
+{{define "title"}}{{.Post.Title}} | {{.Site.Title}}{{end}}
+
+{{define "meta"}}
+{{if .Post.Summary}}<meta name="description" content="{{.Post.Summary}}">{{end}}
+<link rel="canonical" href="{{.Site.BaseURL}}/posts/{{.Post.Slug}}/">
+<meta property="og:title" content="{{.Post.Title}}">
+{{if .Post.Summary}}<meta property="og:description" content="{{.Post.Summary}}">{{end}}
+<meta property="og:type" content="article">
+<meta property="og:url" content="{{.Site.BaseURL}}/posts/{{.Post.Slug}}/">
+{{end}}
+
+{{define "content"}}
+<article>
+    <header>
+        <h1>{{.Post.Title}}</h1>
+        <p><time datetime="{{.Post.Date.Format "2006-01-02"}}">{{.Post.Date.Format "2 January 2006"}}</time></p>
+    </header>
+    {{.Post.HTMLContent}}
+</article>
+{{end}}
