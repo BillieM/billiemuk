@@ -1,0 +1,106 @@
+/* Catppuccin Lavender theme for PicoCSS */
+/* Light: Latte | Dark: Mocha */
+/* Palette: https://catppuccin.com/palette */
+
+/* Light mode — Catppuccin Latte */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --pico-background-color: #eff1f5; /* Base */
+  --pico-color: #4c4f69; /* Text */
+  --pico-muted-color: #6c6f85; /* Subtext0 */
+  --pico-muted-border-color: #ccd0da; /* Surface0 */
+
+  --pico-primary: #7287fd; /* Lavender */
+  --pico-primary-background: #7287fd;
+  --pico-primary-border: #7287fd;
+  --pico-primary-underline: rgba(114, 135, 253, 0.5);
+  --pico-primary-hover: #5c6ef0;
+  --pico-primary-hover-background: #5c6ef0;
+  --pico-primary-hover-border: #5c6ef0;
+  --pico-primary-focus: rgba(114, 135, 253, 0.25);
+  --pico-primary-inverse: #eff1f5; /* Base */
+
+  --pico-secondary: #8c8fa1; /* Overlay1 */
+  --pico-secondary-background: #8c8fa1;
+  --pico-secondary-border: #8c8fa1;
+  --pico-secondary-underline: rgba(140, 143, 161, 0.5);
+  --pico-secondary-hover: #7c7f93; /* Overlay2 */
+  --pico-secondary-hover-background: #7c7f93;
+  --pico-secondary-hover-border: #7c7f93;
+  --pico-secondary-focus: rgba(140, 143, 161, 0.25);
+  --pico-secondary-inverse: #eff1f5;
+
+  --pico-card-background-color: #e6e9ef; /* Mantle */
+  --pico-card-border-color: #ccd0da; /* Surface0 */
+  --pico-card-sectioning-background-color: #dce0e8; /* Crust */
+
+  --pico-code-background-color: #e6e9ef; /* Mantle */
+  --pico-code-color: #4c4f69; /* Text */
+
+  --pico-blockquote-border-color: #7287fd; /* Lavender */
+  --pico-blockquote-footer-color: #6c6f85; /* Subtext0 */
+
+  --pico-h1-color: #4c4f69; /* Text */
+  --pico-h2-color: #5c5f77; /* Subtext1 */
+  --pico-h3-color: #6c6f85; /* Subtext0 */
+  --pico-h4-color: #7c7f93; /* Overlay2 */
+  --pico-h5-color: #8c8fa1; /* Overlay1 */
+  --pico-h6-color: #9ca0b0; /* Overlay0 */
+
+  --pico-mark-background-color: rgba(114, 135, 253, 0.15);
+  --pico-mark-color: #4c4f69;
+
+  --pico-text-selection-color: rgba(114, 135, 253, 0.2);
+}
+
+/* Dark mode — Catppuccin Mocha */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --pico-background-color: #1e1e2e; /* Base */
+    --pico-color: #cdd6f4; /* Text */
+    --pico-muted-color: #a6adc8; /* Subtext0 */
+    --pico-muted-border-color: #313244; /* Surface0 */
+
+    --pico-primary: #b4befe; /* Lavender */
+    --pico-primary-background: #b4befe;
+    --pico-primary-border: #b4befe;
+    --pico-primary-underline: rgba(180, 190, 254, 0.5);
+    --pico-primary-hover: #c8d0fe;
+    --pico-primary-hover-background: #c8d0fe;
+    --pico-primary-hover-border: #c8d0fe;
+    --pico-primary-focus: rgba(180, 190, 254, 0.25);
+    --pico-primary-inverse: #1e1e2e; /* Base */
+
+    --pico-secondary: #7f849c; /* Overlay1 */
+    --pico-secondary-background: #7f849c;
+    --pico-secondary-border: #7f849c;
+    --pico-secondary-underline: rgba(127, 132, 156, 0.5);
+    --pico-secondary-hover: #9399b2; /* Overlay2 */
+    --pico-secondary-hover-background: #9399b2;
+    --pico-secondary-hover-border: #9399b2;
+    --pico-secondary-focus: rgba(127, 132, 156, 0.25);
+    --pico-secondary-inverse: #1e1e2e;
+
+    --pico-card-background-color: #181825; /* Mantle */
+    --pico-card-border-color: #313244; /* Surface0 */
+    --pico-card-sectioning-background-color: #11111b; /* Crust */
+
+    --pico-code-background-color: #181825; /* Mantle */
+    --pico-code-color: #cdd6f4; /* Text */
+
+    --pico-blockquote-border-color: #b4befe; /* Lavender */
+    --pico-blockquote-footer-color: #a6adc8; /* Subtext0 */
+
+    --pico-h1-color: #cdd6f4; /* Text */
+    --pico-h2-color: #bac2de; /* Subtext1 */
+    --pico-h3-color: #a6adc8; /* Subtext0 */
+    --pico-h4-color: #9399b2; /* Overlay2 */
+    --pico-h5-color: #7f849c; /* Overlay1 */
+    --pico-h6-color: #6c7086; /* Overlay0 */
+
+    --pico-mark-background-color: rgba(180, 190, 254, 0.15);
+    --pico-mark-color: #cdd6f4;
+
+    --pico-text-selection-color: rgba(180, 190, 254, 0.2);
+  }
+}
