@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"billiemuk/internal/builder"
+	"billiemuk/internal/content"
 	"billiemuk/internal/templates"
 )
 
@@ -73,8 +74,15 @@ func runBuild(root string, includeDrafts, devMode bool) error {
 }
 
 func runNew(root, title string) error {
-	// not yet implemented — Task 8
-	_ = root
-	_ = title
-	return fmt.Errorf("not yet implemented")
+	postsDir := filepath.Join(root, "content", "posts")
+	path, err := content.NewPost(postsDir, title)
+	if err != nil {
+		return err
+	}
+
+	slug := content.Slugify(title)
+	date := time.Now().Format("2006-01-02")
+	fmt.Printf("Created: %s\n", path)
+	fmt.Printf("Preview: http://localhost:8080/posts/%s-%s/\n", date, slug)
+	return nil
 }

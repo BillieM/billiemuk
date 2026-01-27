@@ -101,3 +101,44 @@ func ParseAllPosts(dir string, includeDrafts bool) ([]Post, error) {
 
 	return posts, nil
 }
+
+func Slugify(s string) string {
+	s = strings.ToLower(s)
+	var result strings.Builder
+	prevHyphen := false
+	for _, r := range s {
+		if (r >= 'a' && r <= 'z') || (r >= '0' && r <= '9') {
+			result.WriteRune(r)
+			prevHyphen = false
+		} else if !prevHyphen && result.Len() > 0 {
+			result.WriteRune('-')
+			prevHyphen = true
+		}
+	}
+	return strings.TrimRight(result.String(), "-")
+}
+
+func NewPost(postsDir, title string) (string, error) {
+	slug := Slugify(title)
+	date := time.Now().Format("2006-01-02")
+	filename := fmt.Sprintf("%s-%s.md", date, slug)
+	path := filepath.Join(postsDir, filename)
+
+	content := fmt.Sprintf(`---
+title: "%s"
+date: %s
+summary: ""
+draft: true
+---
+
+`, title, date)
+
+	if err := os.MkdirAll(postsDir, 0755); err != nil {
+		return "", fmt.Errorf("create posts dir: %w", err)
+	}
+	if err := os.WriteFile(path, []byte(content), 0644); err != nil {
+		return "", fmt.Errorf("write post: %w", err)
+	}
+
+	return path, nil
+}
