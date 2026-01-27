@@ -3,6 +3,11 @@ package main
 import (
 	"fmt"
 	"os"
+	"path/filepath"
+	"time"
+
+	"billiemuk/internal/builder"
+	"billiemuk/internal/templates"
 )
 
 func main() {
@@ -11,15 +16,65 @@ func main() {
 		os.Exit(1)
 	}
 
+	root, err := os.Getwd()
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "error: %v\n", err)
+		os.Exit(1)
+	}
+
 	switch os.Args[1] {
 	case "build":
-		fmt.Println("build: not yet implemented")
+		if err := runBuild(root, false, false); err != nil {
+			fmt.Fprintf(os.Stderr, "build error: %v\n", err)
+			os.Exit(1)
+		}
+		fmt.Println("Build complete: dist/")
 	case "serve":
 		fmt.Println("serve: not yet implemented")
 	case "new":
-		fmt.Println("new: not yet implemented")
+		if len(os.Args) < 3 {
+			fmt.Fprintln(os.Stderr, "Usage: billiemuk new \"Post Title\"")
+			os.Exit(1)
+		}
+		if err := runNew(root, os.Args[2]); err != nil {
+			fmt.Fprintf(os.Stderr, "error: %v\n", err)
+			os.Exit(1)
+		}
 	default:
 		fmt.Fprintf(os.Stderr, "unknown command: %s\n", os.Args[1])
 		os.Exit(1)
 	}
+}
+
+func siteConfig() templates.SiteData {
+	return templates.SiteData{
+		Title:   "Billie Muk",
+		BaseURL: "https://billiemuk.com",
+		Author:  "Billie Muk",
+		Year:    time.Now().Year(),
+		Socials: []templates.Social{
+			{Name: "GitHub", URL: "https://github.com/billiemuk"},
+			{Name: "LinkedIn", URL: "https://linkedin.com/in/billiemuk"},
+		},
+	}
+}
+
+func runBuild(root string, includeDrafts, devMode bool) error {
+	cfg := builder.Config{
+		ContentDir:    filepath.Join(root, "content"),
+		TemplatesDir:  filepath.Join(root, "templates"),
+		StaticDir:     filepath.Join(root, "static"),
+		DistDir:       filepath.Join(root, "dist"),
+		Site:          siteConfig(),
+		IncludeDrafts: includeDrafts,
+		DevMode:       devMode,
+	}
+	return builder.Build(cfg)
+}
+
+func runNew(root, title string) error {
+	// not yet implemented — Task 8
+	_ = root
+	_ = title
+	return fmt.Errorf("not yet implemented")
 }
