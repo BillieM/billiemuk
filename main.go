@@ -54,7 +54,7 @@ func main() {
 func siteConfig() templates.SiteData {
 	return templates.SiteData{
 		Title:   "Billie Muk",
-		BaseURL: "https://billiemuk.com",
+		BaseURL: "https://billiem.uk",
 		Author:  "Billie Muk",
 		Year:    time.Now().Year(),
 		Socials: []templates.Social{

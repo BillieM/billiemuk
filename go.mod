@@ -1,8 +1,8 @@
 module billiemuk
 
-go 1.24.0
+go 1.25.0
 
-toolchain go1.24.12
+toolchain go1.25.6
 
 require (
 	github.com/BurntSushi/toml v1.5.0 // indirect
