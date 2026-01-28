@@ -53,13 +53,13 @@ func main() {
 
 func siteConfig() templates.SiteData {
 	return templates.SiteData{
-		Title:   "Billie Muk",
+		Title:   "billiem",
 		BaseURL: "https://billiem.uk",
-		Author:  "Billie Muk",
+		Author:  "billiem",
 		Year:    time.Now().Year(),
 		Socials: []templates.Social{
-			{Name: "GitHub", URL: "https://github.com/billiemuk"},
-			{Name: "LinkedIn", URL: "https://linkedin.com/in/billiemuk"},
+			{Name: "GitHub", URL: "https://github.com/billiem"},
+			{Name: "LinkedIn", URL: "https://www.linkedin.com/in/billie-merz-53054418b/"},
 		},
 	}
 }
