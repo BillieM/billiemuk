@@ -95,6 +95,7 @@ func TestRenderPost(t *testing.T) {
 		"og:title",
 		"og:type",
 		"canonical",
+		`class="post-reading-card"`,
 	}
 	for _, check := range checks {
 		if !strings.Contains(html, check) {
