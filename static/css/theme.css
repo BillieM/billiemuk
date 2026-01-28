@@ -182,10 +182,6 @@ main a:not(.social-icon) {
   position: relative;
 }
 
-main a.post-card::after {
-  content: none;
-}
-
 main a:not(.social-icon)::after {
   content: '';
   position: absolute;
@@ -205,23 +201,27 @@ main a:not(.social-icon):hover {
   color: var(--pico-primary-hover);
 }
 
+main a.post-card::after {
+  content: none;
+}
+
 main a.post-card {
   display: block;
   padding: 1.25rem 1.5rem;
   border-radius: 0.75rem;
   background: var(--pico-card-background-color);
-  border: 1px solid color-mix(in oklab, var(--pico-primary) 12%, transparent);
   text-decoration: none;
   color: inherit;
   margin-bottom: 1rem;
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--pico-primary) 14%, transparent);
 }
 
 main a.post-card:hover,
 main a.post-card:focus-visible {
   transform: translateY(-2px);
   background: color-mix(in oklab, var(--pico-card-background-color) 92%, var(--pico-primary) 8%);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  border-color: color-mix(in oklab, var(--pico-primary) 28%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--pico-primary) 28%, transparent),
+    0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
 main a.post-card:focus-visible {
