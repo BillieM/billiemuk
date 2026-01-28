@@ -25,9 +25,6 @@
     <main class="container">
         {{block "content" .}}{{end}}
     </main>
-    <footer class="container">
-        <small>&copy; {{.Site.Year}} {{.Site.Title}}</small>
-    </footer>
     {{if .DevMode}}<script>
     const es = new EventSource("/_reload");
     es.onmessage = () => location.reload();
