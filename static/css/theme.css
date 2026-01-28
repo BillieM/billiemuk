@@ -102,5 +102,26 @@
     --pico-mark-color: #cdd6f4;
 
     --pico-text-selection-color: rgba(180, 190, 254, 0.2);
+
+    .site-title {
+      background: linear-gradient(135deg, var(--pico-primary) 0%, #cba6f7 50%, #f5c2e7 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
   }
+}
+
+/* Site title gradient */
+.site-title {
+  background: linear-gradient(135deg, var(--pico-primary) 0%, #cba6f7 50%, #f5c2e7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.site-title:hover {
+  text-decoration: none;
 }
