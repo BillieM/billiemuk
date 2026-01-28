@@ -185,3 +185,15 @@ main a:not(.social-icon):hover::after {
 main a:not(.social-icon):hover {
   color: var(--pico-primary-hover);
 }
+
+/* Post card hover effects */
+.post-card {
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--pico-primary-focus);
+}
