@@ -161,10 +161,29 @@ article {
   display: block;
 }
 
+header.container {
+  padding-top: 1.25rem;
+  padding-bottom: 0.75rem;
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+  opacity: 0.75;
+}
+
+.social-icon:hover svg {
+  opacity: 1;
+}
+
 /* Link hover underline effect */
 main a:not(.social-icon) {
   text-decoration: none;
   position: relative;
+}
+
+main a.post-card::after {
+  content: none;
 }
 
 main a:not(.social-icon)::after {
@@ -186,14 +205,43 @@ main a:not(.social-icon):hover {
   color: var(--pico-primary-hover);
 }
 
-/* Post card hover effects */
-.post-card {
-  padding: 1rem;
-  border-radius: 0.5rem;
+main a.post-card {
+  display: block;
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  background: var(--pico-card-background-color);
+  border: 1px solid color-mix(in oklab, var(--pico-primary) 12%, transparent);
+  text-decoration: none;
+  color: inherit;
   margin-bottom: 1rem;
 }
 
-.post-card:hover {
+main a.post-card:hover,
+main a.post-card:focus-visible {
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--pico-primary-focus);
+  background: color-mix(in oklab, var(--pico-card-background-color) 92%, var(--pico-primary) 8%);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  border-color: color-mix(in oklab, var(--pico-primary) 28%, transparent);
+}
+
+main a.post-card:focus-visible {
+  outline: 2px solid var(--pico-primary);
+  outline-offset: 2px;
+}
+
+.post-card__title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.post-card__meta {
+  font-size: 0.85rem;
+  color: var(--pico-muted-color);
+  opacity: 0.85;
+  margin-left: 0.5rem;
+}
+
+.post-card__summary {
+  margin-top: 0.75rem;
+  line-height: 1.6;
 }
