@@ -17,6 +17,11 @@ func TestThemeCSSIncludesRefreshStyles(t *testing.T) {
 		".site-title",
 		".social-icon",
 		".post-card",
+		".post-card__title",
+		".post-card__meta",
+		".post-card__summary",
+		".post-card:focus-visible",
+		"main a.post-card",
 		"prefers-reduced-motion: reduce",
 		"main a:not(.social-icon)::after",
 	}
