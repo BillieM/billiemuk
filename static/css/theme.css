@@ -143,3 +143,20 @@ article {
     animation: none !important;
   }
 }
+
+/* Social icon hover effects */
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  color: var(--pico-muted-color);
+}
+
+.social-icon:hover {
+  color: var(--pico-primary);
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px var(--pico-primary-focus));
+}
+
+.social-icon svg {
+  display: block;
+}
