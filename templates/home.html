@@ -1,7 +1,7 @@
 {{define "content"}}
 <section>
     {{range .Posts}}
-    <article>
+    <article class="post-card-wrap">
         <a class="post-card" href="/posts/{{.Slug}}/">
             <header>
                 <span class="post-card__title"><strong>{{.Title}}</strong></span>

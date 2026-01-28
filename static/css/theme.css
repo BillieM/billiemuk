@@ -205,6 +205,14 @@ main a.post-card::after {
   content: none;
 }
 
+.post-card-wrap {
+  margin: 0 0 1rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
 main a.post-card {
   display: block;
   padding: 1.25rem 1.5rem;
@@ -212,7 +220,7 @@ main a.post-card {
   background: var(--pico-card-background-color);
   text-decoration: none;
   color: inherit;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   box-shadow: 0 0 0 1px color-mix(in oklab, var(--pico-primary) 14%, transparent);
 }
 
