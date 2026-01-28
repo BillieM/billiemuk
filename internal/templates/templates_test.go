@@ -18,7 +18,10 @@ func TestRenderHome(t *testing.T) {
 			Title:   "Test Site",
 			BaseURL: "https://example.com",
 			Year:    2026,
-			Socials: []Social{{Name: "GitHub", URL: "https://github.com/test"}},
+			Socials: []Social{
+				{Name: "GitHub", URL: "https://github.com/test"},
+				{Name: "LinkedIn", URL: "https://www.linkedin.com/in/test"},
+			},
 		},
 		Posts: []PostData{
 			{
@@ -40,7 +43,11 @@ func TestRenderHome(t *testing.T) {
 		"First Post",
 		"A summary.",
 		"2026-01-15-first-post",
-		"GitHub",
+		`class="site-title"`,
+		`class="social-icon"`,
+		`aria-label="GitHub"`,
+		`aria-label="LinkedIn"`,
+		`<article class="post-card">`,
 		"pico.min.css",
 		"theme.min.css",
 	}
