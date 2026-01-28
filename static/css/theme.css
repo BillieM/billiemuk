@@ -125,3 +125,21 @@
 .site-title:hover {
   text-decoration: none;
 }
+
+/* Global transitions */
+a,
+button,
+.social-icon svg,
+article {
+  transition: all 0.2s ease;
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
