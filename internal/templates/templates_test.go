@@ -47,6 +47,7 @@ func TestRenderHome(t *testing.T) {
 		`class="social-icon"`,
 		`aria-label="GitHub"`,
 		`aria-label="LinkedIn"`,
+		`class="post-card-wrap"`,
 		`class="post-card"`,
 		`class="post-card__title"`,
 		`class="post-card__meta"`,
