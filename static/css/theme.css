@@ -118,7 +118,8 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -235,6 +236,21 @@ main a.post-card:focus-visible {
 main a.post-card:focus-visible {
   outline: 2px solid var(--pico-primary);
   outline-offset: 2px;
+}
+
+.post-reading-card {
+  margin-top: 1.5rem;
+  padding: 2rem;
+  border-radius: 0.85rem;
+  background: var(--pico-card-background-color);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--pico-primary) 10%, transparent),
+    0 12px 28px rgba(0, 0, 0, 0.25);
+}
+
+.post-reading-card h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .post-card__title {
