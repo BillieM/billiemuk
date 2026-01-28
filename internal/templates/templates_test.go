@@ -47,7 +47,10 @@ func TestRenderHome(t *testing.T) {
 		`class="social-icon"`,
 		`aria-label="GitHub"`,
 		`aria-label="LinkedIn"`,
-		`<article class="post-card">`,
+		`class="post-card"`,
+		`class="post-card__title"`,
+		`class="post-card__meta"`,
+		`class="post-card__summary"`,
 		"pico.min.css",
 		"theme.min.css",
 	}
