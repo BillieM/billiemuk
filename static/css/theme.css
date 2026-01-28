@@ -160,3 +160,28 @@ article {
 .social-icon svg {
   display: block;
 }
+
+/* Link hover underline effect */
+main a:not(.social-icon) {
+  text-decoration: none;
+  position: relative;
+}
+
+main a:not(.social-icon)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--pico-primary);
+  transition: width 0.2s ease;
+}
+
+main a:not(.social-icon):hover::after {
+  width: 100%;
+}
+
+main a:not(.social-icon):hover {
+  color: var(--pico-primary-hover);
+}
