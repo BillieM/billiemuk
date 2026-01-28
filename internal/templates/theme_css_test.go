@@ -23,6 +23,8 @@ func TestThemeCSSIncludesRefreshStyles(t *testing.T) {
 		".post-card:focus-visible",
 		"main a.post-card",
 		".post-card-wrap",
+		".post-reading-card",
+		".post-reading-card h1",
 		"0 0 0 1px",
 		"prefers-reduced-motion: reduce",
 		"main a:not(.social-icon)::after",
