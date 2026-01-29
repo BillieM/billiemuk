@@ -16,13 +16,11 @@ func TestThemeCSSIncludesRefreshStyles(t *testing.T) {
 	checks := []string{
 		"body > header",
 		"body > main",
-		"header nav",
-		"main article",
-		"main article header",
-		"main article a",
-		"body > header nav ul:first-child a",
-		"0 0 0 1px",
 		"prefers-reduced-motion: reduce",
+		"--pico-background-color: #eff1f5",
+		"--pico-background-color: #1e1e2e",
+		"--pico-card-sectioning-background-color: #dce0e8",
+		"--pico-card-sectioning-background-color: #11111b",
 	}
 
 	for _, check := range checks {
