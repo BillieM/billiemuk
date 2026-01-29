@@ -72,11 +72,19 @@ main > section > a {
   color: inherit;
 }
 
-main > section > a > article {
+main article {
   padding: 1.25rem 1.5rem;
   border-radius: var(--pico-border-radius);
   background: var(--pico-card-background-color);
   box-shadow: 0 0 0 1px color-mix(in oklab, var(--pico-primary) 14%, transparent);
+}
+
+main article header {
+  margin-bottom: 0.75rem;
+}
+
+main article a {
+  color: inherit;
 }
 
 main > section > a:hover > article,

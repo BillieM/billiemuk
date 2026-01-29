@@ -1,15 +1,15 @@
 {{define "content"}}
 <section>
     {{range .Posts}}
-    <article class="post-card-wrap">
-        <a class="post-card" href="/posts/{{.Slug}}/">
+    <a href="/posts/{{.Slug}}/">
+        <article>
             <header>
-                <span class="post-card__title"><strong>{{.Title}}</strong></span>
-                <span class="post-card__meta"><time datetime="{{.Date.Format "2006-01-02"}}">{{.Date.Format "2 January 2006"}}</time></span>
+                <h2>{{.Title}}</h2>
+                <p><time datetime="{{.Date.Format "2006-01-02"}}">{{.Date.Format "2 January 2006"}}</time></p>
             </header>
-            {{if .Summary}}<p class="post-card__summary">{{.Summary}}</p>{{end}}
-        </a>
-    </article>
+            {{if .Summary}}<p>{{.Summary}}</p>{{end}}
+        </article>
+    </a>
     {{else}}
     <p>No posts yet.</p>
     {{end}}
