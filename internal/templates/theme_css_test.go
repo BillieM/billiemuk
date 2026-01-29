@@ -14,20 +14,15 @@ func TestThemeCSSIncludesRefreshStyles(t *testing.T) {
 
 	contents := string(css)
 	checks := []string{
-		".site-title",
-		".social-icon",
-		".post-card",
-		".post-card__title",
-		".post-card__meta",
-		".post-card__summary",
-		".post-card:focus-visible",
-		"main a.post-card",
-		".post-card-wrap",
-		".post-reading-card",
-		".post-reading-card h1",
+		"body > header",
+		"body > main",
+		"header nav",
+		"main article",
+		"main article header",
+		"main article a",
+		"body > header nav ul:first-child a",
 		"0 0 0 1px",
 		"prefers-reduced-motion: reduce",
-		"main a:not(.social-icon)::after",
 	}
 
 	for _, check := range checks {
