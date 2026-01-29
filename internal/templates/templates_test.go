@@ -42,18 +42,35 @@ func TestRenderHome(t *testing.T) {
 		"Test Site",
 		"First Post",
 		"A summary.",
-		"2026-01-15-first-post",
-		`class="site-title"`,
-		`class="social-icon"`,
+		"/posts/2026-01-15-first-post/",
+		"<header",
+		"<main",
+		"<article",
+		"<svg",
 		`aria-label="GitHub"`,
 		`aria-label="LinkedIn"`,
-		`<article class="post-card">`,
-		"pico.min.css",
 		"theme.min.css",
 	}
 	for _, check := range checks {
 		if !strings.Contains(html, check) {
 			t.Errorf("home HTML missing %q", check)
+		}
+	}
+
+	forbidden := []string{
+		`class="container"`,
+		`class="site-title"`,
+		`class="social-icon"`,
+		`class="post-card-wrap"`,
+		`class="post-card"`,
+		`class="post-card__title"`,
+		`class="post-card__meta"`,
+		`class="post-card__summary"`,
+		"pico.min.css",
+	}
+	for _, check := range forbidden {
+		if strings.Contains(html, check) {
+			t.Errorf("home HTML should not include %q", check)
 		}
 	}
 }
@@ -91,6 +108,8 @@ func TestRenderPost(t *testing.T) {
 		"og:title",
 		"og:type",
 		"canonical",
+		"<article",
+		"<header",
 	}
 	for _, check := range checks {
 		if !strings.Contains(html, check) {

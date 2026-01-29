@@ -1,0 +1,12 @@
+{
+  "name": "billiemuk",
+  "private": true,
+  "devDependencies": {
+    "@picocss/pico": "^2.0.0",
+    "sass": "^1.77.0"
+  },
+  "scripts": {
+    "build:css": "sass --load-path=node_modules static/scss/theme.scss static/css/theme.css --no-source-map && sass --load-path=node_modules static/scss/theme.scss static/css/theme.min.css --no-source-map --style=compressed",
+    "watch:css": "sh -c 'sass --load-path=node_modules static/scss/theme.scss static/css/theme.css --watch & sass --load-path=node_modules static/scss/theme.scss static/css/theme.min.css --watch --style=compressed'"
+  }
+}

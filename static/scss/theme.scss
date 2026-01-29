@@ -1,0 +1,104 @@
+@use "@picocss/pico/scss/pico" with (
+  $enable-classes: false,
+  $enable-semantic-container: true
+);
+
+/* Catppuccin overrides (light) */
+:root:not([data-theme="dark"]) {
+  --pico-background-color: #eff1f5;
+  --pico-color: #4c4f69;
+  --pico-muted-color: #6c6f85;
+  --pico-muted-border-color: #ccd0da;
+  --pico-primary: #7287fd;
+  --pico-primary-background: #7287fd;
+  --pico-primary-border: #7287fd;
+  --pico-primary-hover: #5c6ef0;
+  --pico-primary-hover-background: #5c6ef0;
+  --pico-primary-hover-border: #5c6ef0;
+  --pico-primary-focus: rgba(114, 135, 253, 0.25);
+  --pico-primary-inverse: #eff1f5;
+  --pico-card-background-color: #e6e9ef;
+  --pico-card-border-color: #ccd0da;
+  --pico-card-sectioning-background-color: #dce0e8;
+  --pico-code-background-color: #e6e9ef;
+  --pico-code-color: #4c4f69;
+  --pico-blockquote-border-color: #7287fd;
+  --pico-blockquote-footer-color: #6c6f85;
+  --pico-text-selection-color: rgba(114, 135, 253, 0.2);
+}
+
+/* Catppuccin overrides (dark) */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --pico-background-color: #1e1e2e;
+    --pico-color: #cdd6f4;
+    --pico-muted-color: #a6adc8;
+    --pico-muted-border-color: #313244;
+    --pico-primary: #b4befe;
+    --pico-primary-background: #b4befe;
+    --pico-primary-border: #b4befe;
+    --pico-primary-hover: #c8d0fe;
+    --pico-primary-hover-background: #c8d0fe;
+    --pico-primary-hover-border: #c8d0fe;
+    --pico-primary-focus: rgba(180, 190, 254, 0.25);
+    --pico-primary-inverse: #1e1e2e;
+    --pico-card-background-color: #181825;
+    --pico-card-border-color: #313244;
+    --pico-card-sectioning-background-color: #11111b;
+    --pico-code-background-color: #181825;
+    --pico-code-color: #cdd6f4;
+    --pico-blockquote-border-color: #b4befe;
+    --pico-blockquote-footer-color: #a6adc8;
+    --pico-text-selection-color: rgba(180, 190, 254, 0.2);
+  }
+}
+
+/* Minimal structural enhancements (no custom classes) */
+body > header nav ul:first-child a {
+  background: linear-gradient(135deg, var(--pico-primary) 0%, #cba6f7 50%, #f5c2e7 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+body > header nav ul:last-child a svg {
+  width: 20px;
+  height: 20px;
+}
+
+main > section > a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+main article {
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--pico-border-radius);
+  background: var(--pico-card-background-color);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--pico-primary) 14%, transparent);
+}
+
+main article header {
+  margin-bottom: 0.75rem;
+}
+
+main article a {
+  color: inherit;
+}
+
+main > section > a:hover > article,
+main > section > a:focus-visible > article {
+  transform: translateY(-2px);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--pico-primary) 28%, transparent),
+    0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+main > article {
+  margin-top: 1.5rem;
+  padding: 2rem;
+  border-radius: var(--pico-border-radius);
+  background: var(--pico-card-background-color);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--pico-primary) 10%, transparent),
+    0 12px 28px rgba(0, 0, 0, 0.25);
+}
